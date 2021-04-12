@@ -239,7 +239,7 @@ class Notify(object):
                 url = 'https://oapi.dingtalk.com/robot/send?access_token={}&timestamp={}&sign={}'.format(
                     Notify.DD_BOT_TOKEN, timestamp, sign)
             try:
-                response = self.to_python(requests.post(url, data=data, headers=HEADERS).text)
+                response = self.to_python(requests.post(url, data=json.dumps(data), headers=HEADERS).text)
             except Exception as e:
                 log.error(e)
                 raise HTTPError
