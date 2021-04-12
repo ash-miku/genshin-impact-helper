@@ -218,9 +218,9 @@ class Notify(object):
             url = 'https://oapi.dingtalk.com/robot/send?access_token={}'.format(
                 Notify.DD_BOT_TOKEN)
             data = {
-                'msgtype': 'text',
-                'text': {
-                    'content': '{} {}\n\n{}'.format(text, status, desp)
+                "msgtype": "text",
+                "text": {
+                    "content": "{} {}\n\n{}".format(text, status, desp)
                 }
             }
             HEADERS = {
