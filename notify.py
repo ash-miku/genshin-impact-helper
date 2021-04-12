@@ -226,7 +226,7 @@ class Notify(object):
             if Notify.DD_BOT_SECRET != '':
                 secret = Notify.DD_BOT_SECRET
                 timestamp = int(round(time.time() * 1000))
-                secret_enc = bytes(secret).encode('utf-8')
+                secret_enc = secret.encode('utf-8')
                 string_to_sign = '{}\n{}'.format(timestamp, secret)
                 string_to_sign_enc = bytes(string_to_sign).encode('utf-8')
                 hmac_code = hmac.new(
