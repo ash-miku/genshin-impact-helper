@@ -224,7 +224,7 @@ class Notify(object):
                 }
             }
             HEADERS = {
-                "Content-Type": "application/json ;charset=utf-8 "
+                "Content-Type": "application/json"
             }
             if Notify.DD_BOT_SECRET != '':
                 secret = Notify.DD_BOT_SECRET
