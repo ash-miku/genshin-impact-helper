@@ -223,6 +223,9 @@ class Notify(object):
                     'content': '{} {}\n\n{}'.format(text, status, desp)
                 }
             }
+            HEADERS = {
+                "Content-Type": "application/json ;charset=utf-8 "
+            }
             if Notify.DD_BOT_SECRET != '':
                 secret = Notify.DD_BOT_SECRET
                 timestamp = int(round(time.time() * 1000))
@@ -236,7 +239,7 @@ class Notify(object):
                 url = 'https://oapi.dingtalk.com/robot/send?access_token={}&timestamp={}&sign={}'.format(
                     Notify.DD_BOT_TOKEN, timestamp, sign)
             try:
-                response = self.to_python(requests.post(url, data=data).text)
+                response = self.to_python(requests.post(url, data=data, headers=HEADERS).text)
             except Exception as e:
                 log.error(e)
                 raise HTTPError
